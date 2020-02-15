@@ -14,7 +14,10 @@
     "@glimmer/validator": "^0.47.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@oclif/plugin-help": "^2",
+    "@oclif/plugin-help": "^2.2.3",
+    "@oclif/plugin-not-found": "^1.2.3",
+    "@oclif/plugin-update": "^1.3.9",
+    "@oclif/plugin-warn-if-update-available": "^1.7.0",
     "@simple-dom/interface": "^1.4.0",
     "capitalize": "^2.0.1",
     "chalk": "^3.0.0",
@@ -60,7 +63,13 @@
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
-    "bin": "checkup"
+    "bin": "checkup",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-update",
+      "@oclif/plugin-warn-if-update-available"
+    ]
   },
   "repository": "https://github.com/checkupjs/checkup",
   "scripts": {
