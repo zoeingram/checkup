@@ -10,6 +10,7 @@
   "dependencies": {
     "@checkup/core": "0.0.0",
     "@checkup/plugin-ember": "0.0.0",
+    "@checkup/plugin-ember-octane": "0.0.0",
     "@glimmer/reference": "^0.47.0",
     "@glimmer/runtime": "^0.47.9",
     "@glimmer/syntax": "^0.47.9",
@@ -61,7 +62,8 @@
   "oclif": {
     "bin": "checkup",
     "plugins": [
-      "@checkup/plugin-ember"
+      "@checkup/plugin-ember",
+      "@checkup/plugin-ember-octane"
     ]
   },
   "repository": "https://github.com/checkupjs/checkup",
