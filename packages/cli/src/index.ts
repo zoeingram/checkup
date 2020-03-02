@@ -5,10 +5,11 @@ import {
   TaskConstructor,
   TaskName,
   TaskResult,
-  getConfig,
   getPackageJson,
   loadPlugins,
   ui,
+  CosmiconfigLoaderFactory,
+  CheckupConfigService,
 } from '@checkup/core';
 import { getRegisteredParsers, registerParser } from './parsers';
 import { getRegisteredTasks, registerTask } from './tasks';
@@ -49,7 +50,8 @@ class Checkup extends Command {
   async run() {
     let { args, flags } = this.parse(Checkup);
     let registeredTasks: Map<TaskName, TaskConstructor>;
-    const checkupConfig = await getConfig(args.path);
+    const configService = await CheckupConfigService.load(CosmiconfigLoaderFactory(args.path));
+    const checkupConfig = configService.get();
     const plugins = await loadPlugins(checkupConfig.plugins, args.path);
     this.config.plugins.push(...plugins);
 
