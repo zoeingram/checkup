@@ -1,4 +1,4 @@
-import { JsonObject } from 'type-fest';
+import { JsonObject, PromiseValue } from 'type-fest';
 import { RuntimeCheckupConfig, RuntimeTaskConfig } from './runtime-types';
 import * as t from 'io-ts';
 
@@ -50,3 +50,5 @@ export type CheckupConfigLoader = () => Promise<{
 }>;
 
 export type ConfigMapper = (config: CheckupConfig) => CheckupConfig;
+
+export type CosmiconfigServiceResult = PromiseValue<ReturnType<CheckupConfigLoader>> | null;
